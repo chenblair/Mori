@@ -6,7 +6,6 @@
   <!-- Angular Material style sheet -->
   <link rel="stylesheet"
 href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
-  <link rel="stylesheet" href="index.css">
 
   <link rel="stylesheet"
 href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -121,7 +120,7 @@ crossorigin="anonymous"></script>
     </style>
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script> 
   </head>
-  <body>
+  <body ng-app="app">
     <div id="floating-panel">
       <input onclick="clearMarkers();" type=button value="Hide All">
       <input onclick="showMarkers();" type=button value="Show All">
@@ -312,9 +311,13 @@ crossorigin="anonymous"></script>
               sum += bearCoor[i]; //don't forget to add the base
           }
           var avgBearing = (sum/bearCoor.length)+20;
+          
+          
           /*alert("Chance of being infected in this area: " + percent + "%" + "Trend Direction:" + degrees);*/
            alert("Chance of being infected in this area: " + percent + "%  \n" + "Trend Direction (Bearing): " + avgBearing + " degrees");
-          
+          getPercent(percent);
+          window.location = 'index.html';
+
         }
       
       }
